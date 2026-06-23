@@ -1,0 +1,2829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
+    <title>WB Restaurant · Built Around Your Taste</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mozzard&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --offwhite: #f8fafc;
+            --blue: #1a3a6b;
+            --blue-light: #e8edf5;
+            --blue-dark: #0a1a2f;
+            --gold: #b8860b;
+            --gold-light: #f5d98f;
+            --gold-pale: #faf3e0;
+            --black: #111111;
+            --gray: #6b7a93;
+            --gray-light: #eef2f7;
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 16px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Mozzard', 'Segoe UI', system-ui, sans-serif;
+            background: var(--offwhite);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--offwhite);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        .app {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        /* ---------- ALL 40+ ANIMATIONS ---------- */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes scaleBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            60% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes rotateIn {
+            0% {
+                opacity: 0;
+                transform: rotate(-12deg) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-24px) rotate(2deg);
+            }
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(184, 134, 11, 0.12);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(184, 134, 11, 0.25);
+            }
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -300% center;
+            }
+            100% {
+                background-position: 300% center;
+            }
+        }
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.6) rotate(-3deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+        @keyframes zoomOut {
+            0% {
+                opacity: 0;
+                transform: scale(1.3);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes goldShine {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        @keyframes goldPulse {
+            0%,
+            100% {
+                color: var(--gold);
+            }
+            50% {
+                color: var(--gold-light);
+            }
+        }
+        @keyframes steamRise {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-120px) scale(1.6);
+                opacity: 0;
+            }
+        }
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+        @keyframes neonPulse {
+            0%,
+            100% {
+                border-color: var(--gold);
+                box-shadow: 0 0 15px rgba(184, 134, 11, 0.12);
+            }
+            50% {
+                border-color: var(--gold-light);
+                box-shadow: 0 0 40px rgba(184, 134, 11, 0.25);
+            }
+        }
+        @keyframes whatsappPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.25);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+            }
+        }
+        @keyframes lanternFloat {
+            0%,
+            100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-16px) rotate(2deg);
+            }
+        }
+        @keyframes elasticMenu {
+            0% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            60% {
+                transform: scaleX(1.04);
+                opacity: 1;
+            }
+            100% {
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
+        @keyframes flipIn {
+            0% {
+                transform: perspective(600px) rotateY(-80deg);
+                opacity: 0;
+            }
+            100% {
+                transform: perspective(600px) rotateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.08);
+            }
+            70% {
+                transform: scale(0.92);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes tilt3D {
+            0% {
+                transform: perspective(800px) rotateX(0) rotateY(0);
+            }
+            25% {
+                transform: perspective(800px) rotateX(4deg) rotateY(-4deg);
+            }
+            75% {
+                transform: perspective(800px) rotateX(-4deg) rotateY(4deg);
+            }
+            100% {
+                transform: perspective(800px) rotateX(0) rotateY(0);
+            }
+        }
+        @keyframes waterRipple {
+            0% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+        @keyframes cinematicFade {
+            0% {
+                opacity: 0;
+                filter: blur(12px);
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: scale(1);
+            }
+        }
+        @keyframes splitReveal {
+            0% {
+                clip-path: inset(0 100% 0 0);
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+        @keyframes testiSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(80px) scale(0.92);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        @keyframes explosionIntro {
+            0% {
+                clip-path: circle(0% at 50% 50%);
+                opacity: 0;
+            }
+            100% {
+                clip-path: circle(100% at 50% 50%);
+                opacity: 1;
+            }
+        }
+        @keyframes smokeRise {
+            0% {
+                opacity: 0.6;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2.5) translateY(-100px);
+            }
+        }
+        @keyframes foodFly {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0);
+                opacity: 0;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--fx), var(--fy)) scale(1) rotate(360deg);
+                opacity: 1;
+            }
+        }
+        @keyframes dynamicShadow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(184, 134, 11, 0.08));
+            }
+            50% {
+                filter: drop-shadow(0 0 30px rgba(184, 134, 11, 0.2));
+            }
+            100% {
+                filter: drop-shadow(0 0 10px rgba(184, 134, 11, 0.08));
+            }
+        }
+        @keyframes countdownPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                color: var(--gold);
+            }
+            50% {
+                transform: scale(1.1);
+                color: #ff6b35;
+            }
+        }
+        @keyframes sparkle {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5) rotate(180deg);
+            }
+            100% {
+                transform: scale(2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        @keyframes spinSlow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes shimmerGold {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        @keyframes morphBg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ---------- APPLY ANIMATIONS ---------- */
+        .anim-fade-in {
+            animation: fadeIn 0.8s ease both;
+        }
+        .anim-fade-up {
+            animation: fadeUp 0.8s ease both;
+        }
+        .anim-fade-down {
+            animation: fadeDown 0.8s ease both;
+        }
+        .anim-fade-left {
+            animation: fadeLeft 0.8s ease both;
+        }
+        .anim-fade-right {
+            animation: fadeRight 0.8s ease both;
+        }
+        .anim-scale-in {
+            animation: scaleIn 0.7s ease both;
+        }
+        .anim-scale-bounce {
+            animation: scaleBounce 0.7s ease both;
+        }
+        .anim-rotate-in {
+            animation: rotateIn 0.8s ease both;
+        }
+        .anim-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .anim-float-slow {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+        .anim-pulse {
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        .anim-glow-pulse {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        .anim-shimmer {
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        .anim-slide-up {
+            animation: slideUp 0.9s ease both;
+        }
+        .anim-slide-down {
+            animation: slideDown 0.9s ease both;
+        }
+        .anim-slide-left {
+            animation: slideLeft 0.9s ease both;
+        }
+        .anim-slide-right {
+            animation: slideRight 0.9s ease both;
+        }
+        .anim-zoom-in {
+            animation: zoomIn 0.8s ease both;
+        }
+        .anim-zoom-out {
+            animation: zoomOut 0.8s ease both;
+        }
+        .anim-gold-shine {
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            display: inline-block;
+        }
+        .anim-gold-pulse {
+            animation: goldPulse 2s ease-in-out infinite;
+        }
+        .anim-flip-in {
+            animation: flipIn 0.7s ease both;
+        }
+        .anim-bounce-in {
+            animation: bounceIn 0.7s ease both;
+        }
+        .anim-tilt-3d {
+            animation: tilt3D 8s ease-in-out infinite;
+        }
+        .anim-neon-pulse {
+            animation: neonPulse 2.5s ease-in-out infinite;
+        }
+        .anim-whatsapp-pulse {
+            animation: whatsappPulse 2.5s ease-in-out infinite;
+        }
+        .anim-lantern {
+            animation: lanternFloat 5s ease-in-out infinite;
+        }
+        .anim-elastic {
+            animation: elasticMenu 0.6s ease both;
+        }
+        .anim-cinematic {
+            animation: cinematicFade 1.6s ease both;
+        }
+        .anim-split {
+            animation: splitReveal 1.2s ease both;
+        }
+        .anim-explosion {
+            animation: explosionIntro 1.5s ease both;
+        }
+        .anim-testi {
+            animation: testiSlide 0.7s ease both;
+        }
+        .anim-spin-slow {
+            animation: spinSlow 12s linear infinite;
+        }
+        .anim-countdown-pulse {
+            animation: countdownPulse 1s ease-in-out infinite;
+        }
+
+        /* ---------- HEADER ---------- */
+        .header {
+            padding: 14px 48px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .header .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header .brand .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--blue-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-weight: 800;
+            font-size: 1.4rem;
+            border: 1px solid var(--gold);
+            flex-shrink: 0;
+        }
+        .header .brand .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+        .header .brand h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+        }
+        .header .brand h1 span {
+            color: var(--gold);
+        }
+
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .header .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+        .header .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s;
+        }
+        .header .nav-links a:hover {
+            color: var(--blue-dark);
+        }
+        .header .nav-links a:hover::after {
+            width: 100%;
+        }
+        .header .nav-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .header .nav-actions a {
+            padding: 8px 20px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+        }
+        .header .nav-actions .call-btn {
+            background: var(--offwhite);
+            color: var(--blue-dark);
+            border: 1px solid var(--gray-light);
+        }
+        .header .nav-actions .call-btn:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+        .header .nav-actions .order-btn {
+            background: var(--blue-dark);
+            color: var(--white);
+            border: 1px solid var(--gold);
+        }
+        .header .nav-actions .order-btn:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--blue-dark);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        @media (max-width: 900px) {
+            .header {
+                padding: 12px 20px;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .header .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 0 16px;
+                border-top: 1px solid var(--gray-light);
+                gap: 12px;
+                align-items: center;
+            }
+            .header .nav-links.open {
+                display: flex;
+                animation: elasticMenu 0.4s ease;
+            }
+            .header .nav-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .header .brand h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ---------- HERO WITH BACKGROUND IMAGE ---------- */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 48px 60px;
+            overflow: hidden;
+            background: var(--blue-dark);
+        }
+        .hero .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.45) saturate(1.1);
+            transform: scale(1.02);
+            transition: 0.6s;
+        }
+        .hero .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 26, 47, 0.75) 0%, rgba(10, 26, 47, 0.3) 100%);
+        }
+        .hero .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 820px;
+            padding: 20px 0;
+        }
+        .hero .hero-content .badge {
+            display: inline-block;
+            background: rgba(184, 134, 11, 0.15);
+            border: 1px solid rgba(184, 134, 11, 0.25);
+            color: var(--gold-light);
+            padding: 6px 24px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero .hero-content h1 {
+            font-size: 4.6rem;
+            font-weight: 800;
+            line-height: 1.05;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .hero .hero-content h1 .highlight {
+            color: var(--gold-light);
+            position: relative;
+        }
+        .hero .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: rgba(184, 134, 11, 0.25);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .hero .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 28px;
+        }
+        .hero .hero-content .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero .hero-content .hero-buttons a {
+            padding: 16px 38px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .hero .hero-content .hero-buttons .primary {
+            background: var(--gold);
+            color: var(--white);
+            border: 1px solid var(--gold-light);
+        }
+        .hero .hero-content .hero-buttons .primary:hover {
+            background: var(--gold-light);
+            color: var(--blue-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(184, 134, 11, 0.2);
+        }
+        .hero .hero-content .hero-buttons .secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .hero .hero-content .hero-buttons .secondary:hover {
+            border-color: var(--gold-light);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero .floating-badge-bottom {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 10px 28px;
+            border-radius: 60px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero .floating-badge-bottom i {
+            color: var(--gold-light);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                min-height: 70vh;
+                padding: 100px 24px 80px;
+            }
+            .hero .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero .hero-content p {
+                font-size: 1rem;
+            }
+            .hero .floating-badge-bottom {
+                padding: 8px 18px;
+                font-size: 0.7rem;
+                bottom: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 80px 16px 70px;
+                min-height: 60vh;
+            }
+        }
+
+        /* ---------- SEARCH BAR ---------- */
+        .search-section {
+            padding: 0 48px 40px;
+            background: var(--white);
+            margin-top: -20px;
+            position: relative;
+            z-index: 3;
+        }
+        .search-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: var(--offwhite);
+            padding: 8px;
+            border-radius: 60px;
+            border: 1px solid var(--gray-light);
+            transition: 0.3s;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.02);
+        }
+        .search-bar:focus-within {
+            border-color: var(--gold);
+            box-shadow: 0 8px 40px rgba(184, 134, 11, 0.04);
+        }
+        .search-bar .field {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 18px;
+            background: var(--white);
+            border-radius: 60px;
+            border: 1px solid var(--gray-light);
+            transition: 0.3s;
+            min-width: 140px;
+        }
+        .search-bar .field:focus-within {
+            border-color: var(--gold);
+        }
+        .search-bar .field i {
+            color: var(--gold);
+        }
+        .search-bar .field input,
+        .search-bar .field select {
+            border: none;
+            background: transparent;
+            padding: 10px 4px;
+            font-family: 'Mozzard', sans-serif;
+            font-size: 0.9rem;
+            width: 100%;
+            outline: none;
+            color: var(--black);
+        }
+        .search-bar .search-btn {
+            background: var(--blue-dark);
+            color: var(--white);
+            border: none;
+            padding: 12px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid var(--gold);
+        }
+        .search-bar .search-btn:hover {
+            background: var(--gold);
+            transform: scale(1.02);
+        }
+        @media (max-width: 700px) {
+            .search-section {
+                padding: 0 16px 24px;
+            }
+            .search-bar {
+                flex-direction: column;
+                border-radius: 28px;
+                background: var(--white);
+                padding: 0;
+                border: 1px solid var(--gray-light);
+            }
+            .search-bar .field {
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            .search-bar .search-btn {
+                border-radius: 0 0 28px 28px;
+                justify-content: center;
+                padding: 14px;
+            }
+        }
+
+        /* ---------- SECTIONS ---------- */
+        .section {
+            padding: 60px 48px 40px;
+            background: var(--white);
+        }
+        .section-alt {
+            background: var(--offwhite);
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .section-header h2 i {
+            color: var(--gold);
+        }
+        .section-header a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .section-header a:hover {
+            color: var(--blue-dark);
+            transform: translateX(4px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                padding: 40px 16px 30px;
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ---------- CATEGORIES ---------- */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
+        }
+        .category-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 24px 14px 20px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+            transition: 0.35s cubic-bezier(0.2, 0, 0, 1);
+            cursor: default;
+            position: relative;
+        }
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-hover);
+        }
+        .category-card .icon-wrap {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 10px;
+            background: var(--blue-light);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+        }
+        .category-card:hover .icon-wrap {
+            background: var(--gold-pale);
+            transform: rotate(-4deg) scale(1.05);
+        }
+        .category-card .icon-wrap i {
+            font-size: 2rem;
+            color: var(--blue);
+            transition: 0.4s;
+        }
+        .category-card:hover .icon-wrap i {
+            color: var(--gold);
+        }
+        .category-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+        .category-card .count {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+        .category-card .card-actions {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: 0.35s ease;
+        }
+        .category-card:hover .card-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .category-card .card-actions a {
+            padding: 5px 14px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+            border: 1px solid var(--gray-light);
+            background: var(--white);
+            color: var(--blue-dark);
+            cursor: pointer;
+        }
+        .category-card .card-actions a:hover {
+            background: var(--blue-dark);
+            color: var(--white);
+            border-color: var(--blue-dark);
+        }
+        .category-card .card-actions a i {
+            color: var(--gold);
+        }
+        .category-card .card-actions a:hover i {
+            color: var(--white);
+        }
+        @media (max-width: 600px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .category-card {
+                padding: 18px 10px 16px;
+            }
+            .category-card .icon-wrap {
+                width: 52px;
+                height: 52px;
+            }
+            .category-card .icon-wrap i {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ---------- POPULAR COMBOS ---------- */
+        .combo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+        .combo-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+            transition: 0.4s;
+        }
+        .combo-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-hover);
+        }
+        .combo-card .img-wrap {
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            background: var(--blue-light);
+        }
+        .combo-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .combo-card:hover .img-wrap img {
+            transform: scale(1.04);
+        }
+        .combo-card .img-wrap .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 3px 12px;
+            border-radius: 60px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        .combo-card .info {
+            padding: 16px 18px 18px;
+        }
+        .combo-card .info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+        .combo-card .info p {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin: 2px 0 10px;
+        }
+        .combo-card .info .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .combo-card .info .actions a {
+            padding: 6px 16px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+            border: 1px solid var(--gray-light);
+            background: var(--white);
+            color: var(--blue-dark);
+            cursor: pointer;
+        }
+        .combo-card .info .actions a:hover {
+            background: var(--blue-dark);
+            color: var(--white);
+            border-color: var(--blue-dark);
+        }
+        .combo-card .info .actions a i {
+            color: var(--gold);
+        }
+        .combo-card .info .actions a:hover i {
+            color: var(--white);
+        }
+        .combo-card .info .actions .order-btn-combo {
+            background: var(--blue-dark);
+            color: var(--white);
+            border-color: var(--gold);
+        }
+        .combo-card .info .actions .order-btn-combo:hover {
+            background: var(--gold);
+        }
+        @media (max-width: 600px) {
+            .combo-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .combo-card .img-wrap {
+                height: 120px;
+            }
+            .combo-card .info {
+                padding: 12px 14px 14px;
+            }
+            .combo-card .info h4 {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 450px) {
+            .combo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- DAILY SPECIALS ---------- */
+        .specials-container {
+            background: var(--blue-dark);
+            border-radius: 32px;
+            padding: 40px 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+        .specials-container .left h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+        .specials-container .left h3 span {
+            color: var(--gold-light);
+        }
+        .specials-container .left p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .specials-container .left .price-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            padding: 6px 22px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .specials-container .right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+        .specials-container .right .countdown {
+            display: flex;
+            gap: 14px;
+        }
+        .specials-container .right .countdown .cd-item {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 12px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            min-width: 64px;
+        }
+        .specials-container .right .countdown .cd-item .num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            animation: countdownPulse 1s ease-in-out infinite;
+        }
+        .specials-container .right .countdown .cd-item .label {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .specials-container .right .order-special {
+            padding: 12px 36px;
+            border-radius: 60px;
+            border: none;
+            background: var(--gold);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Mozzard', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .specials-container .right .order-special:hover {
+            background: var(--gold-light);
+            color: var(--blue-dark);
+            transform: scale(1.03);
+        }
+        @media (max-width: 900px) {
+            .specials-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 28px 24px;
+            }
+            .specials-container .right .countdown {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .specials-container .right .countdown .cd-item {
+                min-width: 56px;
+                padding: 10px 14px;
+            }
+            .specials-container .right .countdown .cd-item .num {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ---------- FEATURED DISHES ---------- */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .featured-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+            transition: 0.4s;
+        }
+        .featured-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-hover);
+        }
+        .featured-item .img-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 12px;
+            border: 3px solid var(--gold-pale);
+            transition: 0.4s;
+        }
+        .featured-item:hover .img-circle {
+            border-color: var(--gold);
+        }
+        .featured-item .img-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .featured-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+        .featured-item p {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin: 2px 0 10px;
+        }
+        .featured-item .price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .featured-item .order-featured {
+            margin-top: 10px;
+            padding: 6px 20px;
+            border-radius: 60px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Mozzard', sans-serif;
+        }
+        .featured-item .order-featured:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+        @media (max-width: 600px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .featured-item .img-circle {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* ---------- CHEF'S SPECIAL ---------- */
+        .chef-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--blue-dark);
+            border-radius: 32px;
+            padding: 40px 48px;
+            border: 1px solid rgba(184, 134, 11, 0.06);
+        }
+        .chef-section .chef-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .chef-section .chef-text h3 span {
+            color: var(--gold-light);
+        }
+        .chef-section .chef-text p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .chef-section .chef-text .chef-btn {
+            padding: 12px 32px;
+            border-radius: 60px;
+            border: none;
+            background: var(--gold);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Mozzard', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chef-section .chef-text .chef-btn:hover {
+            background: var(--gold-light);
+            color: var(--blue-dark);
+            transform: scale(1.03);
+        }
+        .chef-section .chef-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .chef-section .chef-image .img-wrap {
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(184, 134, 11, 0.15);
+        }
+        .chef-section .chef-image .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media (max-width: 900px) {
+            .chef-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 28px 24px;
+            }
+            .chef-section .chef-image .img-wrap {
+                max-width: 220px;
+            }
+        }
+
+        /* ---------- REVIEWS ---------- */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+        .review-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 24px 26px;
+            border: 1px solid var(--gray-light);
+            transition: 0.4s;
+        }
+        .review-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+        .review-card .stars {
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        .review-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .review-card .author {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .review-card .author .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--blue-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 0.9rem;
+        }
+        .review-card .author .name {
+            font-weight: 600;
+            color: var(--blue-dark);
+            font-size: 0.9rem;
+        }
+        .review-card .author .role {
+            font-size: 0.7rem;
+            color: var(--gray);
+        }
+
+        /* ---------- NEWSLETTER ---------- */
+        .newsletter {
+            background: var(--offwhite);
+            border-radius: 32px;
+            padding: 40px 48px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+        .newsletter h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+        }
+        .newsletter h3 i {
+            color: var(--gold);
+        }
+        .newsletter p {
+            color: var(--gray);
+            margin: 6px 0 20px;
+        }
+        .newsletter .news-form {
+            display: flex;
+            max-width: 480px;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .newsletter .news-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 24px;
+            border-radius: 60px;
+            border: 1px solid var(--gray-light);
+            font-family: 'Mozzard', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .newsletter .news-form input:focus {
+            border-color: var(--gold);
+        }
+        .newsletter .news-form button {
+            padding: 14px 36px;
+            border-radius: 60px;
+            border: none;
+            background: var(--blue-dark);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Mozzard', sans-serif;
+            border: 1px solid var(--gold);
+        }
+        .newsletter .news-form button:hover {
+            background: var(--gold);
+        }
+        @media (max-width: 600px) {
+            .newsletter {
+                padding: 24px 16px;
+            }
+            .newsletter h3 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ---------- BOTTOM CTA ---------- */
+        .bottom-cta {
+            margin: 0 48px 32px;
+            padding: 28px 36px;
+            background: var(--blue-dark);
+            border-radius: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border: 1px solid rgba(184, 134, 11, 0.08);
+        }
+        .bottom-cta .left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .bottom-cta .left i {
+            font-size: 2.2rem;
+            color: var(--gold-light);
+        }
+        .bottom-cta .left h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        .bottom-cta .left p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+        .bottom-cta .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .bottom-cta .actions a {
+            padding: 12px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .bottom-cta .actions .wa {
+            background: #25d366;
+            color: var(--white);
+        }
+        .bottom-cta .actions .wa:hover {
+            transform: scale(1.04);
+        }
+        .bottom-cta .actions .call {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .bottom-cta .actions .call:hover {
+            border-color: var(--gold-light);
+            transform: scale(1.04);
+        }
+        @media (max-width: 900px) {
+            .bottom-cta {
+                margin: 0 16px 24px;
+                padding: 20px 24px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .bottom-cta .left {
+                flex-direction: column;
+            }
+            .bottom-cta .actions {
+                justify-content: center;
+            }
+        }
+
+        /* ---------- PHONE BADGE ---------- */
+        .phone-badge-row {
+            display: flex;
+            justify-content: center;
+            padding: 0 48px 16px;
+        }
+        .phone-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 24px;
+            border-radius: 60px;
+            border: 1px solid var(--gray-light);
+            background: var(--white);
+            font-weight: 500;
+            color: var(--blue-dark);
+            font-size: 0.9rem;
+        }
+        .phone-badge i {
+            color: var(--gold);
+        }
+        @media (max-width: 600px) {
+            .phone-badge-row {
+                padding: 0 16px 12px;
+            }
+            .phone-badge {
+                font-size: 0.8rem;
+                padding: 6px 16px;
+            }
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            padding: 20px 48px 28px;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+        .footer i {
+            color: var(--gold);
+        }
+        @media (max-width: 600px) {
+            .footer {
+                padding: 16px 16px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ---------- WHATSAPP FLOAT ---------- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.2);
+            animation: whatsappPulse 2.5s ease-in-out infinite;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 600px) {
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                font-size: 1.6rem;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        /* ---------- MODAL (BUILDER) ---------- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: var(--white);
+            border-radius: 32px;
+            max-width: 820px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 36px 44px;
+            position: relative;
+            animation: scaleBounce 0.4s ease;
+            border: 1px solid var(--gray-light);
+        }
+        .modal .close-modal {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .modal .close-modal:hover {
+            color: var(--black);
+            transform: rotate(90deg);
+        }
+        .modal h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 2px;
+        }
+        .modal .subtitle {
+            color: var(--gray);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .modal .builder-steps {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .modal .builder-steps .step {
+            flex: 1;
+            min-width: 44px;
+            padding: 8px 0;
+            text-align: center;
+            border-radius: 10px;
+            background: var(--offwhite);
+            border: 1px solid var(--gray-light);
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--gray);
+            transition: 0.3s;
+            cursor: default;
+        }
+        .modal .builder-steps .step.active {
+            background: var(--blue-dark);
+            color: var(--white);
+            border-color: var(--gold);
+        }
+        .modal .builder-steps .step.done {
+            background: var(--gold-pale);
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        .modal .builder-panel {
+            display: none;
+            animation: fadeUp 0.3s ease;
+        }
+        .modal .builder-panel.active {
+            display: block;
+        }
+        .modal .builder-panel h3 {
+            font-size: 1.2rem;
+            color: var(--blue-dark);
+            margin-bottom: 14px;
+        }
+        .modal .builder-panel .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 8px;
+        }
+        .modal .builder-panel .options .opt {
+            background: var(--offwhite);
+            border: 2px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 14px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .modal .builder-panel .options .opt:hover {
+            border-color: var(--gold);
+            background: var(--gold-pale);
+        }
+        .modal .builder-panel .options .opt.selected {
+            border-color: var(--gold);
+            background: var(--gold-pale);
+        }
+        .modal .builder-panel .options .opt i {
+            font-size: 1.6rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .modal .builder-panel .options .opt span {
+            font-size: 0.8rem;
+            color: var(--blue-dark);
+            font-weight: 500;
+        }
+        .modal .builder-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .modal .builder-nav button {
+            padding: 10px 28px;
+            border-radius: 60px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Mozzard', sans-serif;
+        }
+        .modal .builder-nav .prev {
+            background: var(--offwhite);
+            color: var(--gray);
+        }
+        .modal .builder-nav .prev:hover {
+            background: var(--gray-light);
+        }
+        .modal .builder-nav .next {
+            background: var(--blue-dark);
+            color: var(--white);
+            border: 1px solid var(--gold);
+        }
+        .modal .builder-nav .next:hover {
+            background: var(--gold);
+        }
+        .modal .builder-nav .place-order {
+            background: #25d366;
+            color: var(--white);
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+        .modal .builder-nav .place-order:hover {
+            transform: scale(1.04);
+        }
+        @media (max-width: 700px) {
+            .modal {
+                padding: 24px 18px;
+            }
+            .modal h2 {
+                font-size: 1.4rem;
+            }
+            .modal .builder-panel .options {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+            .modal .builder-steps .step {
+                font-size: 0.6rem;
+                min-width: 36px;
+                padding: 6px 0;
+            }
+            .modal .builder-nav button {
+                padding: 8px 18px;
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 450px) {
+            .modal .builder-panel .options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .modal .builder-steps {
+                gap: 4px;
+            }
+            .modal .builder-steps .step {
+                font-size: 0.55rem;
+                min-width: 30px;
+                padding: 4px 0;
+            }
+        }
+
+        /* ---------- SCROLL ANIMATION PLAY STATE ---------- */
+        .anim-fade-up,
+        .anim-slide-up,
+        .anim-slide-left,
+        .anim-slide-right,
+        .anim-scale-in,
+        .anim-zoom-in,
+        .anim-testi,
+        .anim-fade-down,
+        .anim-rotate-in,
+        .anim-fade-left,
+        .anim-fade-right {
+            animation-play-state: paused;
+        }
+        .anim-fade-up.visible,
+        .anim-slide-up.visible,
+        .anim-slide-left.visible,
+        .anim-slide-right.visible,
+        .anim-scale-in.visible,
+        .anim-zoom-in.visible,
+        .anim-testi.visible,
+        .anim-fade-down.visible,
+        .anim-rotate-in.visible,
+        .anim-fade-left.visible,
+        .anim-fade-right.visible {
+            animation-play-state: running;
+        }
+        /* Hero animations always run */
+        .hero .anim-fade-down,
+        .hero .anim-cinematic,
+        .hero .anim-fade-up,
+        .hero .anim-scale-in,
+        .hero .anim-float {
+            animation-play-state: running;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="#" class="whatsapp-float" onclick="placeOrder()" title="Order via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="app">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header" id="header">
+            <div class="brand">
+                <!-- ============================================================ -->
+                <!-- LOGO PLACEHOLDER: Replace the <div> below with your own logo. -->
+                <!-- You can use <img src="path/to/your-logo.png" alt="WB Logo" />    -->
+                <!-- ============================================================ -->
+                <div class="logo-placeholder">
+                    <!-- Replace the text below with your logo image -->
+                    <span>WB</span>
+                    <!-- Example: <img src="your-logo.png" alt="WB Restaurant Logo" /> -->
+                </div>
+                <h1>WB <span>Restaurant</span></h1>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Home</a>
+                <a href="#categories">Menu</a>
+                <a href="#combos">Combos</a>
+                <a href="#specials">Specials</a>
+                <a href="#featured">Featured</a>
+                <a href="#reviews">Reviews</a>
+                <div class="nav-actions">
+                    <a href="#" class="call-btn" onclick="alert('📞 Calling +265 991 457 498')">
+                        <i class="fas fa-phone-alt"></i> Call
+                    </a>
+                    <a href="#" class="order-btn" onclick="openBuilder()">
+                        <i class="fas fa-utensil-spoon"></i> Build Plate
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== HERO WITH BACKGROUND IMAGE ===== -->
+        <section class="hero" id="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="badge anim-fade-down">✦ MALAWI'S PREMIER FOOD EXPERIENCE</div>
+                <h1 class="anim-cinematic">
+                    Built <br /><span class="highlight">Around Your Taste</span>
+                </h1>
+                <p class="anim-fade-up" style="animation-delay:0.2s;">
+                    Craft your perfect plate with Nsima, relish, and extras — then order in one click.
+                </p>
+                <div class="hero-buttons anim-fade-up" style="animation-delay:0.4s;">
+                    <a href="#" class="primary" onclick="openBuilder()"><i class="fas fa-utensil-spoon"></i> Build Your Plate</a>
+                    <a href="#combos" class="secondary"><i class="fas fa-fire"></i> Popular Combos</a>
+                </div>
+            </div>
+            <div class="floating-badge-bottom anim-float">
+                <i class="fas fa-star"></i> 4.9 ★ (200+ reviews)
+                <span style="opacity:0.3;margin:0 6px;">·</span>
+                <i class="fas fa-clock"></i> Open 10am – 11pm
+            </div>
+        </section>
+
+        <!-- ===== SEARCH ===== -->
+        <div class="search-section">
+            <div class="search-bar anim-slide-up" style="animation-delay:0.1s;">
+                <div class="field">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="What are you looking for.. (Pizza, Burger)" />
+                </div>
+                <div class="field">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select>
+                        <option>Select Location</option>
+                        <option>Downtown</option>
+                        <option>Uptown</option>
+                        <option>City Center</option>
+                    </select>
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== CATEGORIES ===== -->
+        <section class="section" id="categories">
+            <div class="section-header">
+                <h2><i class="fas fa-th-large"></i> Our Categories</h2>
+                <a onclick="document.getElementById('combos').scrollIntoView({behavior:'smooth'})">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="category-grid">
+                <div class="category-card anim-scale-in" style="animation-delay:0.05s;">
+                    <div class="icon-wrap"><i class="fas fa-pizza-slice"></i></div>
+                    <h4>Pizza</h4>
+                    <div class="count">14 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Pizza')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Pizza')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.1s;">
+                    <div class="icon-wrap"><i class="fas fa-drumstick-bite"></i></div>
+                    <h4>Broast</h4>
+                    <div class="count">4 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Broast')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Broast')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.15s;">
+                    <div class="icon-wrap"><i class="fas fa-utensil-spoon"></i></div>
+                    <h4>Chicken</h4>
+                    <div class="count">5 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Chicken')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Chicken')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.2s;">
+                    <div class="icon-wrap"><i class="fas fa-hamburger"></i></div>
+                    <h4>Burgers</h4>
+                    <div class="count">19 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Burger')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Burgers')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.25s;">
+                    <div class="icon-wrap"><i class="fas fa-glass-martini-alt"></i></div>
+                    <h4>Shakes</h4>
+                    <div class="count">22 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Shake')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Shakes')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.3s;">
+                    <div class="icon-wrap"><i class="fas fa-bread-slice"></i></div>
+                    <h4>Sandwiches</h4>
+                    <div class="count">6 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Sandwich')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Sandwiches')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.35s;">
+                    <div class="icon-wrap"><i class="fas fa-egg"></i></div>
+                    <h4>Pasta</h4>
+                    <div class="count">10 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Pasta')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Pasta')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="category-card anim-scale-in" style="animation-delay:0.4s;">
+                    <div class="icon-wrap"><i class="fas fa-cake"></i></div>
+                    <h4>Desserts</h4>
+                    <div class="count">15 Restaurants</div>
+                    <div class="card-actions">
+                        <a onclick="quickOrder('Dessert')"><i class="fab fa-whatsapp"></i> Order</a>
+                        <a onclick="alert('📞 Call for Desserts')"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== POPULAR COMBOS ===== -->
+        <section class="section section-alt" id="combos">
+            <div class="section-header">
+                <h2><i class="fas fa-crown"></i> Popular Combos</h2>
+                <a onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="combo-grid">
+                <div class="combo-card anim-zoom-in" style="animation-delay:0.05s;">
+                    <div class="img-wrap">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop&crop=center" alt="Nsima and beef" />
+                        <span class="badge">Popular</span>
+                    </div>
+                    <div class="info">
+                        <h4>Nsima + Beef</h4>
+                        <p>Classic Malawi favorite</p>
+                        <div class="actions">
+                            <a class="order-btn-combo" onclick="quickOrder('Nsima + Beef Stew')"><i class="fab fa-whatsapp"></i> Order</a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="combo-card anim-zoom-in" style="animation-delay:0.15s;">
+                    <div class="img-wrap">
+                        <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&h=300&fit=crop&crop=center" alt="Rice and chicken" />
+                        <span class="badge">Best Seller</span>
+                    </div>
+                    <div class="info">
+                        <h4>Rice + Chicken</h4>
+                        <p>Perfect Sunday lunch</p>
+                        <div class="actions">
+                            <a class="order-btn-combo" onclick="quickOrder('Rice + Fried Chicken')"><i class="fab fa-whatsapp"></i> Order</a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="combo-card anim-zoom-in" style="animation-delay:0.25s;">
+                    <div class="img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400&h=300&fit=crop&crop=center" alt="Chips and goat" />
+                        <span class="badge">Spicy</span>
+                    </div>
+                    <div class="info">
+                        <h4>Chips + Goat</h4>
+                        <p>Rich and savory</p>
+                        <div class="actions">
+                            <a class="order-btn-combo" onclick="quickOrder('Chips + Goat Meat')"><i class="fab fa-whatsapp"></i> Order</a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="combo-card anim-zoom-in" style="animation-delay:0.35s;">
+                    <div class="img-wrap">
+                        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop&crop=center" alt="Chambo fish" />
+                        <span class="badge">Lake Fresh</span>
+                    </div>
+                    <div class="info">
+                        <h4>Nsima + Chambo</h4>
+                        <p>Lake Malawi special</p>
+                        <div class="actions">
+                            <a class="order-btn-combo" onclick="quickOrder('Nsima + Chambo Fish')"><i class="fab fa-whatsapp"></i> Order</a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DAILY SPECIALS ===== -->
+        <section class="section" id="specials">
+            <div class="specials-container anim-slide-up">
+                <div class="left">
+                    <h3>Today's <span>Special</span></h3>
+                    <p>🔥 Nsima + Grilled Chicken + Extra Soup</p>
+                    <div class="price-tag">2,500 MWK</div>
+                    <p style="margin-top:8px;font-size:0.8rem;color:rgba(255,255,255,0.25);">Includes free drink · limited time</p>
+                </div>
+                <div class="right">
+                    <div class="countdown" id="countdown">
+                        <div class="cd-item"><div class="num" id="cdHours">02</div><div class="label">Hours</div></div>
+                        <div class="cd-item"><div class="num" id="cdMinutes">14</div><div class="label">Minutes</div></div>
+                        <div class="cd-item"><div class="num" id="cdSeconds">09</div><div class="label">Seconds</div></div>
+                    </div>
+                    <button class="order-special" onclick="quickOrder('Nsima + Grilled Chicken + Extra Soup')">
+                        <i class="fab fa-whatsapp"></i> Order Special
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURED DISHES ===== -->
+        <section class="section section-alt" id="featured">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Chef's Featured Dishes</h2>
+                <a onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">See All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-item anim-zoom-in" style="animation-delay:0.05s;">
+                    <div class="img-circle"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop&crop=center" alt="Grilled Chicken" /></div>
+                    <h4>Grilled Chicken</h4>
+                    <p>Herbs & spices</p>
+                    <div class="price">3,200 MWK</div>
+                    <button class="order-featured" onclick="quickOrder('Grilled Chicken')">Order Now</button>
+                </div>
+                <div class="featured-item anim-zoom-in" style="animation-delay:0.15s;">
+                    <div class="img-circle"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop&crop=center" alt="Chambo Fish" /></div>
+                    <h4>Chambo Fish</h4>
+                    <p>Lake Malawi fresh</p>
+                    <div class="price">4,500 MWK</div>
+                    <button class="order-featured" onclick="quickOrder('Chambo Fish')">Order Now</button>
+                </div>
+                <div class="featured-item anim-zoom-in" style="animation-delay:0.25s;">
+                    <div class="img-circle"><img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=200&h=200&fit=crop&crop=center" alt="Beef Burger" /></div>
+                    <h4>Beef Burger</h4>
+                    <p>With cheddar & fries</p>
+                    <div class="price">3,800 MWK</div>
+                    <button class="order-featured" onclick="quickOrder('Beef Burger')">Order Now</button>
+                </div>
+                <div class="featured-item anim-zoom-in" style="animation-delay:0.35s;">
+                    <div class="img-circle"><img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=200&h=200&fit=crop&crop=center" alt="Fried Chicken" /></div>
+                    <h4>Fried Chicken</h4>
+                    <p>Crispy & golden</p>
+                    <div class="price">2,800 MWK</div>
+                    <button class="order-featured" onclick="quickOrder('Fried Chicken')">Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CHEF'S SPECIAL ===== -->
+        <section class="section" id="chef">
+            <div class="chef-section anim-slide-up">
+                <div class="chef-text">
+                    <h3>From Our <span>Chef's Kitchen</span></h3>
+                    <p>Every dish is crafted with love and the finest local ingredients. Our chef brings you the authentic taste of Malawi with a modern twist.</p>
+                    <button class="chef-btn" onclick="openBuilder()"><i class="fas fa-utensil-spoon"></i> Build Your Plate</button>
+                </div>
+                <div class="chef-image">
+                    <div class="img-wrap">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=400&h=400&fit=crop&crop=center" alt="Chef" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REVIEWS (UPDATED LOCATIONS) ===== -->
+        <section class="section section-alt" id="reviews">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> What Our Customers Say</h2>
+                <a onclick="document.getElementById('newsletter').scrollIntoView({behavior:'smooth'})">See All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="review-grid">
+                <div class="review-card anim-testi" style="animation-delay:0.05s;">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"The best Nsima I've ever had! The customization is amazing."</p>
+                    <div class="author"><div class="avatar">TM</div><div><div class="name">Tawonga M.</div><div class="role">Jog's Hostel</div></div></div>
+                </div>
+                <div class="review-card anim-testi" style="animation-delay:0.15s;">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Love the Chambo! The WhatsApp ordering is so convenient."</p>
+                    <div class="author"><div class="avatar">CK</div><div><div class="name">Chifundo K.</div><div class="role">Masten Girls</div></div></div>
+                </div>
+                <div class="review-card anim-testi" style="animation-delay:0.25s;">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p>"Built my own plate and it was perfect. Highly recommend!"</p>
+                    <div class="author"><div class="avatar">ZM</div><div><div class="name">Zione M.</div><div class="role">Campus</div></div></div>
+                </div>
+                <div class="review-card anim-testi" style="animation-delay:0.35s;">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"The food is always fresh and the delivery is super fast!"</p>
+                    <div class="author"><div class="avatar">GS</div><div><div class="name">Grace S.</div><div class="role">Sadi</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWSLETTER ===== -->
+        <section class="section" id="newsletter">
+            <div class="newsletter anim-slide-up">
+                <h3><i class="fas fa-envelope"></i> Stay in the Loop</h3>
+                <p>Get exclusive deals, new menu alerts, and special offers.</p>
+                <div class="news-form">
+                    <input type="email" placeholder="Enter your email" />
+                    <button onclick="alert('✅ Subscribed! Check your inbox.')">Subscribe</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BOTTOM CTA ===== -->
+        <div class="bottom-cta anim-slide-up">
+            <div class="left">
+                <i class="fas fa-map-pin"></i>
+                <div>
+                    <h3>📍 123 Blue Ave, Downtown</h3>
+                    <p>Blantyre, Malawi · Open 10am – 11pm</p>
+                </div>
+            </div>
+            <div class="actions">
+                <a href="#" class="wa" onclick="placeOrder()"><i class="fab fa-whatsapp"></i> Order via WA</a>
+                <a href="#" class="call" onclick="alert('📞 Calling +265 991 457 498')"><i class="fas fa-phone-alt"></i> Call Now</a>
+            </div>
+        </div>
+
+        <!-- ===== PHONE BADGE ===== -->
+        <div class="phone-badge-row">
+            <div class="phone-badge">
+                <i class="fas fa-phone-alt"></i>
+                <span>+265 991 457 498</span>
+                <i class="fas fa-crown" style="color:var(--gold);margin-left:6px;"></i>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <span>© 2026 WB Restaurant · <i class="fas fa-utensils"></i> Built Around Your Taste</span>
+            <span><i class="fas fa-star" style="color:var(--gold);"></i> 40+ animations · Premium experience</span>
+        </footer>
+
+    </div>
+
+    <!-- ===== MODAL (BUILDER) ===== -->
+    <div class="modal-overlay" id="builderModal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeBuilder()">&times;</button>
+            <h2>🍽️ Build Your Plate</h2>
+            <p class="subtitle">Customize your meal step by step</p>
+
+            <div class="builder-steps" id="builderSteps">
+                <div class="step active" data-step="0">1. Main</div>
+                <div class="step" data-step="1">2. Relish</div>
+                <div class="step" data-step="2">3. Extras</div>
+                <div class="step" data-step="3">4. Size</div>
+                <div class="step" data-step="4">5. Delivery</div>
+            </div>
+
+            <div class="builder-content" id="builderContent">
+                <div class="builder-panel active" data-step="0">
+                    <h3>Choose Your Main</h3>
+                    <div class="options">
+                        <div class="opt" data-value="Nsima"><i class="fas fa-bread"></i><span>Nsima</span></div>
+                        <div class="opt" data-value="Rice"><i class="fas fa-seedling"></i><span>Rice</span></div>
+                        <div class="opt" data-value="Chips"><i class="fas fa-french-fries"></i><span>Chips</span></div>
+                        <div class="opt" data-value="Cassava"><i class="fas fa-carrot"></i><span>Cassava</span></div>
+                        <div class="opt" data-value="Kondowole"><i class="fas fa-leaf"></i><span>Kondowole</span></div>
+                    </div>
+                </div>
+                <div class="builder-panel" data-step="1">
+                    <h3>Choose Your Relish</h3>
+                    <div class="options">
+                        <div class="opt" data-value="Beef Stew"><i class="fas fa-drumstick-bite"></i><span>Beef Stew</span></div>
+                        <div class="opt" data-value="Fried Chicken"><i class="fas fa-utensil-spoon"></i><span>Fried Chicken</span></div>
+                        <div class="opt" data-value="Chambo Fish"><i class="fas fa-fish"></i><span>Chambo Fish</span></div>
+                        <div class="opt" data-value="Goat Meat"><i class="fas fa-paw"></i><span>Goat Meat</span></div>
+                        <div class="opt" data-value="Beans"><i class="fas fa-seedling"></i><span>Beans</span></div>
+                        <div class="opt" data-value="Vegetables"><i class="fas fa-carrot"></i><span>Vegetables</span></div>
+                    </div>
+                </div>
+                <div class="builder-panel" data-step="2">
+                    <h3>Extras (choose any)</h3>
+                    <div class="options">
+                        <div class="opt" data-value="Extra Soup"><i class="fas fa-mug-saucer"></i><span>Extra Soup</span></div>
+                        <div class="opt" data-value="Hot Peppers"><i class="fas fa-pepper-hot"></i><span>Hot Peppers</span></div>
+                        <div class="opt" data-value="Salad"><i class="fas fa-leaf"></i><span>Salad</span></div>
+                        <div class="opt" data-value="Avocado"><i class="fas fa-seedling"></i><span>Avocado</span></div>
+                        <div class="opt" data-value="Coca-Cola"><i class="fas fa-wine-bottle"></i><span>Coca-Cola</span></div>
+                        <div class="opt" data-value="Fanta"><i class="fas fa-wine-glass"></i><span>Fanta</span></div>
+                    </div>
+                </div>
+                <div class="builder-panel" data-step="3">
+                    <h3>Portion Size</h3>
+                    <div class="options">
+                        <div class="opt" data-value="Small"><i class="fas fa-egg"></i><span>Small</span></div>
+                        <div class="opt" data-value="Medium"><i class="fas fa-egg"></i><span>Medium</span></div>
+                        <div class="opt" data-value="Large"><i class="fas fa-egg"></i><span>Large</span></div>
+                    </div>
+                </div>
+                <div class="builder-panel" data-step="4">
+                    <h3>Delivery or Pickup</h3>
+                    <div class="options">
+                        <div class="opt" data-value="Delivery"><i class="fas fa-truck"></i><span>Delivery</span></div>
+                        <div class="opt" data-value="Pickup"><i class="fas fa-store"></i><span>Pickup</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="builder-nav">
+                <button class="prev" id="modalPrev"><i class="fas fa-arrow-left"></i> Back</button>
+                <div>
+                    <button class="next" id="modalNext">Next <i class="fas fa-arrow-right"></i></button>
+                    <button class="place-order" id="modalPlaceOrder" style="display:none;margin-left:12px;">
+                        <i class="fab fa-whatsapp"></i> Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== MOBILE TOGGLE =====
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close menu on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleBtn.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ===== MODAL =====
+        const modal = document.getElementById('builderModal');
+
+        function openBuilder() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Reset builder
+            currentStep = 0;
+            selections = { main: '', relish: '', size: '', delivery: '', extras: [] };
+            document.querySelectorAll('.builder-panel .opt').forEach(o => o.classList.remove('selected'));
+            document.querySelectorAll('.builder-steps .step').forEach((s, i) => {
+                s.classList.toggle('active', i === 0);
+                s.classList.remove('done');
+            });
+            document.querySelectorAll('.builder-panel').forEach((p, i) => {
+                p.classList.toggle('active', i === 0);
+            });
+            modalPrev.style.display = 'none';
+            modalNext.style.display = 'inline-flex';
+            modalPlace.style.display = 'none';
+        }
+
+        function closeBuilder() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) closeBuilder();
+        });
+
+        // ===== BUILDER LOGIC =====
+        let currentStep = 0;
+        const totalSteps = 5;
+        let selections = { main: '', relish: '', size: '', delivery: '', extras: [] };
+
+        const modalSteps = document.querySelectorAll('#builderSteps .step');
+        const modalPanels = document.querySelectorAll('.builder-panel');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        const modalPlace = document.getElementById('modalPlaceOrder');
+
+        function updateModal() {
+            modalSteps.forEach((s, i) => {
+                s.classList.remove('active', 'done');
+                if (i < currentStep) s.classList.add('done');
+                if (i === currentStep) s.classList.add('active');
+            });
+            modalPanels.forEach((p, i) => {
+                p.classList.toggle('active', i === currentStep);
+            });
+            modalPrev.style.display = currentStep === 0 ? 'none' : 'inline-flex';
+            modalNext.style.display = currentStep === totalSteps - 1 ? 'none' : 'inline-flex';
+            modalPlace.style.display = currentStep === totalSteps - 1 ? 'inline-flex' : 'none';
+        }
+
+        // Option selection inside modal
+        document.querySelectorAll('.builder-panel .opt').forEach(opt => {
+            opt.addEventListener('click', function() {
+                const panel = this.closest('.builder-panel');
+                const step = parseInt(panel.dataset.step);
+                const value = this.dataset.value;
+                const labels = ['main', 'relish', 'extras', 'size', 'delivery'];
+
+                if (step === 2) {
+                    // Extras: toggle
+                    const idx = selections.extras.indexOf(value);
+                    if (idx > -1) {
+                        selections.extras.splice(idx, 1);
+                        this.classList.remove('selected');
+                    } else {
+                        selections.extras.push(value);
+                        this.classList.add('selected');
+                    }
+                    console.log('Selections:', selections);
+                    return;
+                }
+
+                // Single select
+                panel.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                selections[labels[step]] = value;
+                console.log('Selections:', selections);
+            });
+        });
+
+        modalPrev.addEventListener('click', () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateModal();
+            }
+        });
+
+        modalNext.addEventListener('click', () => {
+            const labels = ['main', 'relish', 'size', 'delivery'];
+            if (currentStep < totalSteps - 1) {
+                // For extras (step 2), we allow skipping
+                if (currentStep === 2) {
+                    currentStep++;
+                    updateModal();
+                    return;
+                }
+                const key = labels[currentStep];
+                // Check if selection exists
+                if (currentStep < 4 && !selections[key]) {
+                    alert('Please select an option before continuing.');
+                    return;
+                }
+                currentStep++;
+                updateModal();
+            }
+        });
+
+        modalPlace.addEventListener('click', placeOrder);
+
+        // ===== ORDER FUNCTIONS =====
+        function placeOrder() {
+            const main = selections.main || 'Nsima';
+            const relish = selections.relish || 'Fried Chicken';
+            const extras = selections.extras && selections.extras.length > 0 ? selections.extras.join(', ') : 'None';
+            const size = selections.size || 'Medium';
+            const delivery = selections.delivery || 'Delivery';
+            const address = delivery === 'Delivery' ? 'Blantyre (please specify address)' : 'Pickup at restaurant';
+
+            const msg =
+                `Hello WB Restaurant 👋
+
+        I would like to order:
+
+        • ${size} ${main}
+        • ${relish}
+        • Extras: ${extras}
+        • ${delivery}
+
+        Delivery Address: ${address}
+
+        Thank you!`;
+
+            const url = `https://wa.me/265991457498?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+            closeBuilder();
+        }
+
+        function quickOrder(combo) {
+            const msg =
+                `Hello WB Restaurant 👋
+
+        I would like to order the combo:
+
+        • ${combo}
+
+        Thank you!`;
+            const url = `https://wa.me/265991457498?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // Make functions global
+        window.placeOrder = placeOrder;
+        window.quickOrder = quickOrder;
+        window.openBuilder = openBuilder;
+        window.closeBuilder = closeBuilder;
+
+        // ===== COUNTDOWN =====
+        let totalSeconds = 2 * 3600 + 14 * 60 + 9;
+
+        function updateCountdown() {
+            const h = Math.floor(totalSeconds / 3600);
+            const m = Math.floor((totalSeconds % 3600) / 60);
+            const s = totalSeconds % 60;
+            document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+            document.getElementById('cdMinutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('cdSeconds').textContent = String(s).padStart(2, '0');
+            if (totalSeconds > 0) totalSeconds--;
+        }
+        setInterval(updateCountdown, 1000);
+
+        // ===== SCROLL ANIMATIONS =====
+        const animElements = document.querySelectorAll(
+            '.anim-slide-up, .anim-slide-left, .anim-slide-right, .anim-scale-in, .anim-zoom-in, .anim-testi, .anim-fade-up, .anim-fade-down, .anim-rotate-in, .anim-fade-left, .anim-fade-right'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        animElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== SPARKLE EFFECT =====
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
+          @keyframes sparkle {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            100% { transform: scale(2) rotate(360deg); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(sparkleStyle);
+
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.style.cssText = `
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            left: ${Math.random() * 100}vw;
+            top: ${Math.random() * 100}vh;
+            animation: sparkle 1.8s ease-out forwards;
+          `;
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1800);
+        }
+        setInterval(createSparkle, 4000);
+
+        console.log('✨ WB Restaurant · 40+ animations active!');
+        console.log('🍽️ Built Around Your Taste · Blue · White · Black · Gold');
+        console.log('📍 Locations updated: Jog\'s Hostel, Masten Girls, Campus, Sadi');
+    </script>
+
+</body>
+</html>

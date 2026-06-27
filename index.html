@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-    <title>WB Restaurant Â· Built Around Your Taste</title>
+    <title>WB Restaurant · Built Around Your Taste</title>
     <link href="https://fonts.googleapis.com/css2?family=Mozzard&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -505,7 +505,7 @@
         }
 
         /* ================================================
-           âœ¨ 5 NEW VISUAL EFFECTS â€” ALL VISIBLE BELOW âœ¨
+           ✨ 5 NEW VISUAL EFFECTS — ALL VISIBLE BELOW ✨
            1. Glassmorphism Stats Bar (hero bottom)
            2. Animated Gold Ticker / Marquee Strip
            3. Interactive 3D Tilt on Featured Dish Cards
@@ -514,13 +514,39 @@
            ================================================ */
 
         /* ================================================
-           âœ¨ 5 SMART & PREMIUM VISUAL EFFECTS âœ¨
+           ✨ 5 SMART & PREMIUM VISUAL EFFECTS ✨
            1. Interactive Timeline Milestones (History)
            2. Founder SVG Signature Draw-in
            3. Live WhatsApp Order Previewer
            4. Animated Stats Roll-up on Scroll
            5. Glowing Scroll-to-Top Button (retained)
            ================================================ */
+
+        /* ---------- READ MORE TOGGLE ---------- */
+        .story-extra {
+            display: none;
+            margin-top: 0;
+        }
+        .story-extra.open {
+            display: block;
+        }
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            padding: 6px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+        .read-more-btn:hover {
+            color: var(--blue-dark);
+        }
 
         /* ---------- HISTORICAL TIMELINE SECTION ---------- */
         .history-section {
@@ -3032,7 +3058,7 @@
                 <a href="#featured">Featured</a>
                 <a href="#reviews">Reviews</a>
                 <div class="nav-actions">
-                    <a href="#" class="call-btn" onclick="alert('ðŸ“ž Calling +265 983 256 350')">
+                    <a href="#" class="call-btn" onclick="alert('📞 Calling +265 983 256 350')">
                         <i class="fas fa-phone-alt"></i> Call
                     </a>
                     <a href="#" class="order-btn" onclick="openBuilder()">
@@ -3048,12 +3074,12 @@
         <section class="hero" id="hero">
             <div class="hero-bg"></div>
             <div class="hero-content">
-                <div class="badge anim-fade-down">âœ¦ MALAWI'S PREMIER FOOD EXPERIENCE</div>
+                <div class="badge anim-fade-down">✦ MALAWI'S PREMIER FOOD EXPERIENCE</div>
                 <h1 class="anim-cinematic">
                     Built <br /><span class="highlight">Around Your Taste</span>
                 </h1>
                 <p class="anim-fade-up" style="animation-delay:0.2s;">
-                    Craft your perfect plate with Nsima, relish, and extras â€” then order in one click.
+                    Craft your perfect plate with Nsima, relish, and extras — then order in one click.
                 </p>
                 <div class="hero-buttons anim-fade-up" style="animation-delay:0.4s;">
                     <a href="#" class="primary" onclick="openBuilder()"><i class="fas fa-utensil-spoon"></i> Build Your Plate</a>
@@ -3061,9 +3087,9 @@
                 </div>
             </div>
             <div class="floating-badge-bottom anim-float">
-                <i class="fas fa-star"></i> 4.9 â˜… (200+ reviews)
-                <span style="opacity:0.3;margin:0 6px;">Â·</span>
-                <i class="fas fa-clock"></i> Open 10am â€“ 11pm
+                <i class="fas fa-star"></i> 4.9 ★ (200+ reviews)
+                <span style="opacity:0.3;margin:0 6px;">·</span>
+                <i class="fas fa-clock"></i> Open 10am – 11pm
             </div>
 
         </section>
@@ -3105,7 +3131,7 @@
                     <div class="count">14 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Pizza')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Pizza')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Pizza')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.1s;">
@@ -3114,7 +3140,7 @@
                     <div class="count">4 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Broast')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Broast')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Broast')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.15s;">
@@ -3123,7 +3149,7 @@
                     <div class="count">5 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Chicken')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Chicken')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Chicken')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.2s;">
@@ -3132,7 +3158,7 @@
                     <div class="count">19 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Burger')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Burgers')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Burgers')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.25s;">
@@ -3141,7 +3167,7 @@
                     <div class="count">22 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Shake')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Shakes')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Shakes')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.3s;">
@@ -3150,7 +3176,7 @@
                     <div class="count">6 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Sandwich')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Sandwiches')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Sandwiches')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.35s;">
@@ -3159,7 +3185,7 @@
                     <div class="count">10 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Pasta')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Pasta')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Pasta')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="category-card anim-scale-in" style="animation-delay:0.4s;">
@@ -3168,7 +3194,7 @@
                     <div class="count">15 Restaurants</div>
                     <div class="card-actions">
                         <a onclick="quickOrder('Dessert')"><i class="fab fa-whatsapp"></i> Order</a>
-                        <a onclick="alert('ðŸ“ž Call for Desserts')"><i class="fas fa-phone-alt"></i></a>
+                        <a onclick="alert('📞 Call for Desserts')"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -3191,7 +3217,7 @@
                         <p>Classic Malawi favorite</p>
                         <div class="actions">
                             <a class="order-btn-combo" onclick="quickOrder('Nsima + Beef Stew')"><i class="fab fa-whatsapp"></i> Order</a>
-                            <a onclick="alert('ðŸ“ž Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -3205,7 +3231,7 @@
                         <p>Hearty &amp; satisfying</p>
                         <div class="actions">
                             <a class="order-btn-combo" onclick="quickOrder('Rice + Beef Stew')"><i class="fab fa-whatsapp"></i> Order</a>
-                            <a onclick="alert('ðŸ“ž Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -3219,7 +3245,7 @@
                         <p>Rich and savory</p>
                         <div class="actions">
                             <a class="order-btn-combo" onclick="quickOrder('Chips + Goat Meat')"><i class="fab fa-whatsapp"></i> Order</a>
-                            <a onclick="alert('ðŸ“ž Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -3233,7 +3259,7 @@
                         <p>Lake Malawi special</p>
                         <div class="actions">
                             <a class="order-btn-combo" onclick="quickOrder('Nsima + Chambo Fish')"><i class="fab fa-whatsapp"></i> Order</a>
-                            <a onclick="alert('ðŸ“ž Call for combo')"><i class="fas fa-phone-alt"></i></a>
+                            <a onclick="alert('📞 Call for combo')"><i class="fas fa-phone-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -3245,9 +3271,9 @@
             <div class="specials-container anim-slide-up">
                 <div class="left">
                     <h3>Today's <span>Special</span></h3>
-                    <p>ðŸ”¥ Nsima + Grilled Chicken + Extra Soup</p>
+                    <p>🔥 Nsima + Grilled Chicken + Extra Soup</p>
                     <div class="price-tag">2,500 MWK</div>
-                    <p style="margin-top:8px;font-size:0.8rem;color:rgba(255,255,255,0.25);">Includes free drink Â· limited time</p>
+                    <p style="margin-top:8px;font-size:0.8rem;color:rgba(255,255,255,0.25);">Includes free drink · limited time</p>
                 </div>
                 <div class="right">
                     <div class="countdown" id="countdown">
@@ -3333,8 +3359,11 @@
                 <div class="timeline-content-card active" id="timeline-card-0">
                     <div class="story-text">
                         <h3><i class="fas fa-water"></i> Cape Maclear Beginnings</h3>
-                        <p>The WB Restaurant was founded in 2016 in the stunning lakeside town of Cape Maclear, Mangochi District ðŸŒŠ. What began as a small, family-run food business quickly became known for its fresh, flavorful meals, affordability, and consistent quality.</p>
-                        <p>Serving both local communities and the many tourists who visit this beautiful lakeside town, we focused on creating a warm and welcoming atmosphere where every guest could enjoy delicious meals and freshly brewed coffee â˜•. It wasnâ€™t just about food; it was about building trust, relationships, and memorable experiences.</p>
+                        <p>The WB Restaurant was founded in 2016 in the stunning lakeside town of Cape Maclear, Mangochi District 🌊. What began as a small, family-run food business quickly became known for its fresh, flavorful meals, affordability, and consistent quality.</p>
+                        <div class="story-extra" id="story-extra-0">
+                            <p>Serving both local communities and the many tourists who visit this beautiful lakeside town, we focused on creating a warm and welcoming atmosphere where every guest could enjoy delicious meals and freshly brewed coffee ☕. It wasn’t just about food; it was about building trust, relationships, and memorable experiences.</p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(0)"><i class="fas fa-chevron-down" id="rm-icon-0"></i> <span id="rm-label-0">Read More</span></button>
                     </div>
                     <div class="story-icon">
                         <i class="fas fa-ship"></i>
@@ -3344,8 +3373,11 @@
                 <div class="timeline-content-card" id="timeline-card-1">
                     <div class="story-text">
                         <h3><i class="fas fa-heart"></i> Every Dish Tells a Story</h3>
-                        <p>From locally sourced ingredients ðŸ¥¬ðŸŸ to the careful preparation by our skilled chefs, WB Restaurant combines traditional Malawian flavors with modern culinary techniques. The goal is simple: to delight every guest, every time.</p>
-                        <p>We pride ourselves on fresh ingredients sourced directly from lakeside fishermen and local agricultural smallholders, ensuring that traditional tastes are preserved with the highest standards of food safety and culinary presentation.</p>
+                        <p>From locally sourced ingredients 🥬🐟 to the careful preparation by our skilled chefs, WB Restaurant combines traditional Malawian flavors with modern culinary techniques. The goal is simple: to delight every guest, every time.</p>
+                        <div class="story-extra" id="story-extra-1">
+                            <p>We pride ourselves on fresh ingredients sourced directly from lakeside fishermen and local agricultural smallholders, ensuring that traditional tastes are preserved with the highest standards of food safety and culinary presentation.</p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(1)"><i class="fas fa-chevron-down" id="rm-icon-1"></i> <span id="rm-label-1">Read More</span></button>
                     </div>
                     <div class="story-icon">
                         <i class="fas fa-utensils"></i>
@@ -3355,8 +3387,11 @@
                 <div class="timeline-content-card" id="timeline-card-2">
                     <div class="story-text">
                         <h3><i class="fas fa-map-marker-alt"></i> Relocating to Mangochi Campus</h3>
-                        <p>As WB Restaurant grew, so did the vision. Today, the restaurant is relocating closer to DMI St. John the Baptist University, Mangochi Campus ðŸ“, along the busy bus stop road.</p>
-                        <p>This new location makes it easily accessible to students, staff, travelers ðŸš—, and nearby communities, providing everyone with quick, convenient service while maintaining the same high standards of food quality and hospitality that we built at the lake.</p>
+                        <p>As WB Restaurant grew, so did the vision. Today, the restaurant is relocating closer to DMI St. John the Baptist University, Mangochi Campus 📍, along the busy bus stop road.</p>
+                        <div class="story-extra" id="story-extra-2">
+                            <p>This new location makes it easily accessible to students, staff, travelers 🚗, and nearby communities, providing everyone with quick, convenient service while maintaining the same high standards of food quality and hospitality that we built at the lake.</p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(2)"><i class="fas fa-chevron-down" id="rm-icon-2"></i> <span id="rm-label-2">Read More</span></button>
                     </div>
                     <div class="story-icon">
                         <i class="fas fa-university"></i>
@@ -3366,8 +3401,11 @@
                 <div class="timeline-content-card" id="timeline-card-3">
                     <div class="story-text">
                         <h3><i class="fas fa-seedling"></i> Supporting Our Community</h3>
-                        <p>Beyond serving great food, WB Restaurant is committed to supporting the local community ðŸŒ± by working with local farmers and suppliers, creating job opportunities, and promoting sustainability wherever possible.</p>
-                        <p>Whether youâ€™re stopping by for a hearty meal, a quick snack, or pre-ordering a dish while on your journey ðŸš—, WB Restaurant ensures that every visit is enjoyable, seamless, and memorable. Join us and discover why WB Restaurant is more than just a place to eat â€” itâ€™s a destination.</p>
+                        <p>Beyond serving great food, WB Restaurant is committed to supporting the local community 🌱 by working with local farmers and suppliers, creating job opportunities, and promoting sustainability wherever possible.</p>
+                        <div class="story-extra" id="story-extra-3">
+                            <p>Whether you’re stopping by for a hearty meal, a quick snack, or pre-ordering a dish while on your journey 🚗, WB Restaurant ensures that every visit is enjoyable, seamless, and memorable. Join us and discover why WB Restaurant is more than just a place to eat — it’s a destination.</p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(3)"><i class="fas fa-chevron-down" id="rm-icon-3"></i> <span id="rm-label-3">Read More</span></button>
                     </div>
                     <div class="story-icon">
                         <i class="fas fa-hands-helping"></i>
@@ -3397,7 +3435,7 @@
                     <div class="founder-quote">
                         <p>"At WB Restaurant, we believe that culinary excellence is a form of community hospitality. We combine the deep heritage of Malawian cuisine with the modern convenience of active, customized ordering."</p>
                     </div>
-                    <p>ðŸ‘¨ðŸ³ Mr. Billy Nyasulu is a Malawi-born entrepreneur with extensive experience in the food industry. Before founding WB Restaurant, he supplied confectionaries to major supermarkets, including Chipiku ðŸ›’, gaining valuable expertise in food quality standards, supply consistency, and understanding customer demand.</p>
+                    <p>👨🍳 Mr. Billy Nyasulu is a Malawi-born entrepreneur with extensive experience in the food industry. Before founding WB Restaurant, he supplied confectionaries to major supermarkets, including Chipiku 🛒, gaining valuable expertise in food quality standards, supply consistency, and understanding customer demand.</p>
                     <p>In 2016, he transitioned from supplier to restaurateur, establishing WB Restaurant in Cape Maclear. Under his guidance, the restaurant has focused on quality, consistency, and local sustainability. Today, he continues to guide the restaurant's relocation near DMI St. John the Baptist University, ensuring a warm, welcoming, and professional environment.</p>
 
                     <!-- Smart effect: Stats rollout on scroll -->
@@ -3720,7 +3758,7 @@
                 <p>Get exclusive deals, new menu alerts, and special offers.</p>
                 <div class="news-form">
                     <input type="email" placeholder="Enter your email" />
-                    <button onclick="alert('âœ… Subscribed! Check your inbox.')">Subscribe</button>
+                    <button onclick="alert('✅ Subscribed! Check your inbox.')">Subscribe</button>
                 </div>
             </div>
         </section>
@@ -3730,13 +3768,13 @@
             <div class="left">
                 <i class="fas fa-map-pin"></i>
                 <div>
-                    <h3>ðŸ“ 123 Blue Ave, Downtown</h3>
-                    <p>Blantyre, Malawi Â· Open 10am â€“ 11pm</p>
+                    <h3>📍 123 Blue Ave, Downtown</h3>
+                    <p>Blantyre, Malawi · Open 10am – 11pm</p>
                 </div>
             </div>
             <div class="actions">
                 <a href="#" class="wa" onclick="placeOrder()"><i class="fab fa-whatsapp"></i> Order via WA</a>
-                <a href="#" class="call" onclick="alert('ðŸ“ž Calling +265 983 256 350')"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="#" class="call" onclick="alert('📞 Calling +265 983 256 350')"><i class="fas fa-phone-alt"></i> Call Now</a>
             </div>
         </div>
 
@@ -3751,8 +3789,8 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <span>Â© 2026 WB Restaurant Â· <i class="fas fa-utensils"></i> Built Around Your Taste</span>
-            <span><i class="fas fa-star" style="color:var(--gold);"></i> 40+ animations Â· Premium experience</span>
+            <span>© 2026 WB Restaurant · <i class="fas fa-utensils"></i> Built Around Your Taste</span>
+            <span><i class="fas fa-star" style="color:var(--gold);"></i> 40+ animations · Premium experience</span>
         </footer>
 
     </div>
@@ -3761,7 +3799,7 @@
     <div class="modal-overlay" id="builderModal">
         <div class="modal">
             <button class="close-modal" onclick="closeBuilder()">&times;</button>
-            <h2>ðŸ½ï¸ Build Your Plate</h2>
+            <h2>🍽️ Build Your Plate</h2>
             <p class="subtitle">Customize your meal step by step</p>
 
             <div class="builder-steps" id="builderSteps">
@@ -3834,14 +3872,14 @@
                     </div>
                     <div class="wa-chat-body">
                         <div class="wa-msg-bubble" id="waOrderPreview">
-                            Hello WB Restaurant ðŸ‘‹
+                            Hello WB Restaurant 👋
 
                             I would like to order:
-                            â€¢ [Main Selection]
-                            â€¢ [Relish Selection]
-                            â€¢ Extras: None
-                            â€¢ [Portion Size]
-                            â€¢ [Delivery Selection]
+                            • [Main Selection]
+                            • [Relish Selection]
+                            • Extras: None
+                            • [Portion Size]
+                            • [Delivery Selection]
 
                             Please fill in options to complete...
                             <div class="timestamp" id="waPreviewTime">Just now</div>
@@ -3989,7 +4027,7 @@
                 // Check if selection exists for required steps
                 if (!selections[key]) {
                     // Show a nicer toast instead of alert
-                    showToast('âš ï¸ Please select an option before continuing.');
+                    showToast('⚠️ Please select an option before continuing.');
                     return;
                 }
                 currentStep++;
@@ -4009,14 +4047,14 @@
             const address = delivery === 'Delivery' ? 'Blantyre (please specify address)' : 'Pickup at restaurant';
 
             const msg =
-                `Hello WB Restaurant ðŸ‘‹
+                `Hello WB Restaurant 👋
 
         I would like to order:
 
-        â€¢ ${size} ${main}
-        â€¢ ${relish}
-        â€¢ Extras: ${extras}
-        â€¢ ${delivery}
+        • ${size} ${main}
+        • ${relish}
+        • Extras: ${extras}
+        • ${delivery}
 
         Delivery Address: ${address}
 
@@ -4029,11 +4067,11 @@
 
         function quickOrder(combo) {
             const msg =
-                `Hello WB Restaurant ðŸ‘‹
+                `Hello WB Restaurant 👋
 
         I would like to order the combo:
 
-        â€¢ ${combo}
+        • ${combo}
 
         Thank you!`;
             const url = `https://wa.me/265983256350?text=${encodeURIComponent(msg)}`;
@@ -4170,6 +4208,19 @@
         }
         window.switchTimeline = switchTimeline;
 
+        // ===== READ MORE TOGGLE =====
+        function toggleReadMore(index) {
+            const extra = document.getElementById('story-extra-' + index);
+            const icon  = document.getElementById('rm-icon-' + index);
+            const label = document.getElementById('rm-label-' + index);
+            if (!extra) return;
+            const isOpen = extra.classList.contains('open');
+            extra.classList.toggle('open', !isOpen);
+            icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+            label.textContent = isOpen ? 'Read More' : 'Read Less';
+        }
+        window.toggleReadMore = toggleReadMore;
+
         // ===== FOUNDER SIGNATURE SVG ANIMATION ON SCROLL =====
         const founderSigObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -4223,10 +4274,10 @@
             const name = document.getElementById(`apply-name-${index}`).value.trim();
             const phone = document.getElementById(`apply-phone-${index}`).value.trim();
             if (!name || !phone) {
-                showToast('âš ï¸ Please enter both your name and phone number.');
+                showToast('⚠️ Please enter both your name and phone number.');
                 return;
             }
-            const msg = `Hello WB Restaurant ðŸ‘‹\n\nI would like to apply for the Cooking Academy course:\nâ€¢ Course: ${className}\nâ€¢ Applicant Name: ${name}\nâ€¢ Contact Number: ${phone}\n\nThank you!`;
+            const msg = `Hello WB Restaurant 👋\n\nI would like to apply for the Cooking Academy course:\n• Course: ${className}\n• Applicant Name: ${name}\n• Contact Number: ${phone}\n\nThank you!`;
             const url = `https://wa.me/265983256350?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
             
@@ -4234,7 +4285,7 @@
             document.getElementById(`apply-name-${index}`).value = '';
             document.getElementById(`apply-phone-${index}`).value = '';
             document.getElementById(`apply-form-${index}`).classList.remove('open');
-            showToast('âœ… Application generated! Opening WhatsApp...');
+            showToast('✅ Application generated! Opening WhatsApp...');
         }
         window.submitClassApplication = submitClassApplication;
 
@@ -4268,10 +4319,10 @@
             const guests = document.getElementById('guestRangeSlider').value;
             const pkgLabel = document.getElementById('calcPkgLabel').textContent;
             
-            const msg = `Hello WB Restaurant ðŸ‘‹\n\nI would like to inquire about your Catering Services:\nâ€¢ Event Type: ${pkgSelect}\nâ€¢ Estimated Guest Count: ${guests} guests\nâ€¢ Recommended Package: ${pkgLabel}\n\nPlease send us a customized menu selection and quote. Thanks!`;
+            const msg = `Hello WB Restaurant 👋\n\nI would like to inquire about your Catering Services:\n• Event Type: ${pkgSelect}\n• Estimated Guest Count: ${guests} guests\n• Recommended Package: ${pkgLabel}\n\nPlease send us a customized menu selection and quote. Thanks!`;
             const url = `https://wa.me/265983256350?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
-            showToast('âœ… Inquiry generated! Opening WhatsApp...');
+            showToast('✅ Inquiry generated! Opening WhatsApp...');
         }
         window.submitCateringInquiry = submitCateringInquiry;
 
@@ -4302,7 +4353,7 @@
             const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             
             // Build the WhatsApp message format
-            const msg = `Hello WB Restaurant ðŸ‘‹\n\nI would like to order:\n\nâ€¢ ${size === '[Choose Portion Size]' ? '[Portion]' : size} ${main}\nâ€¢ ${relish}\nâ€¢ Extras: ${extras}\nâ€¢ ${delivery}\n\n*Pre-filled from Build Plate customization*`;
+            const msg = `Hello WB Restaurant 👋\n\nI would like to order:\n\n• ${size === '[Choose Portion Size]' ? '[Portion]' : size} ${main}\n• ${relish}\n• Extras: ${extras}\n• ${delivery}\n\n*Pre-filled from Build Plate customization*`;
             
             previewBubble.innerText = msg;
             
@@ -4316,9 +4367,9 @@
             updateCateringEstimate();
         }
 
-        console.log('âœ¨ WB Restaurant Â· 40+ animations + Story, Founder, Academy & Catering active!');
-        console.log('ðŸ½ï¸ Built Around Your Taste Â· Blue Â· White Â· Black Â· Gold');
-        console.log('ðŸ“ Locations updated: Jog\'s Hostel, Masten Girls, Campus, Sadi');
+        console.log('✨ WB Restaurant · 40+ animations + Story, Founder, Academy & Catering active!');
+        console.log('🍽️ Built Around Your Taste · Blue · White · Black · Gold');
+        console.log('📍 Locations updated: Jog\'s Hostel, Masten Girls, Campus, Sadi');
     </script>
 
 </body>
